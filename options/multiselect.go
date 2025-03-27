@@ -1,5 +1,7 @@
 package options
 
+import "fmt"
+
 import "github.com/IvanLogvynenko/go-fzf/interfaces"
 
 type MultiselectStruct struct {
@@ -18,7 +20,7 @@ func (m MultiselectStruct) Render() []string {
 	if m.max == -1 {
 		return []string{"--multi"}
 	} else {
-		return []string{"--multi", string(m.max)}
+		return []string{"--multi", fmt.Sprint(m.max)}
 	}
 }
 func (m MultiselectStruct) RenderStruct(opts []interfaces.Struct) []string { return m.Render() }

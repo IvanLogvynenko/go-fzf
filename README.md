@@ -19,7 +19,9 @@ Options:
 - Multiselect: Guess what? And you can limit maximal selection
 - Cycle: Cycling through given options (default: when you reach the end you won't be sent to the first again)
 - Info: You can provide some description for each option and it will be displayed when the option is selected. Lenght and indexes must match. If no description is needed pass an empty string. You can also store description in your structs if you are using FzfPromptStruct. If so, override `Desc` in your struct and make it return your description
+- InfoPosition: [up/down/right(default)/left] Choose where to display your info window
 - Binds: (default: tab:down,shift-tab:up,ctrl-s:select,ctrl-a:select-all,ctrl-d:deselect) They are mine. You can provide your own that will override that
+- Style: [default/full/minimal]
 
 Default modes: Binds
 
