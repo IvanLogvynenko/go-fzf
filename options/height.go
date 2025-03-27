@@ -26,6 +26,10 @@ func Height(height int) HeightStruct {
 	return HeightStruct{border(height, 0, 100)}
 }
 
-func (h HeightStruct) Render() string {
-	return fmt.Sprintf("--height %d%%", h.height)
+func (h HeightStruct) Render() []string {
+	return []string{"--height", fmt.Sprint(h.height)}
+}
+
+func (h HeightStruct) RenderStruct() []string {
+	return h.Render()
 }

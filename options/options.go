@@ -1,6 +1,8 @@
 package options
 
+import "github.com/IvanLogvynenko/go-fzf/interfaces"
+
 type Mode interface {
-	// well... naming being easy)
 	Render() []string
+	RenderStruct(opts []interfaces.Struct) []string
 }

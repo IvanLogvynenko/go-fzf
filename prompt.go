@@ -4,6 +4,7 @@ import (
 	"os/exec"
 	"strings"
 
+	"github.com/IvanLogvynenko/go-fzf/interfaces"
 	"github.com/IvanLogvynenko/go-fzf/options"
 )
 
@@ -25,11 +26,6 @@ func FzfPrompt(options []string, modes ...options.Mode) ([]string, error) {
 	return strings.Split(strings.TrimSpace(string(out)), "\n"), nil
 }
 
-// well, struct has to be convertable to string
-type Struct interface {
-	ToString()
-}
-
-func FzfPromptStruct(options []Struct, modes ...options.Mode) ([]Struct, error) {
+func FzfPromptStruct(options []interfaces.Struct, modes ...options.Mode) ([]interfaces.Struct, error) {
 	return nil, nil
 }
