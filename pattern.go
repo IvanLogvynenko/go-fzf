@@ -1,6 +1,4 @@
-package fzfarguments
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+package gofzf
 
 type PatternStruct struct {
 	pattern string
@@ -14,4 +12,4 @@ func (p PatternStruct) Render() []string {
 	return []string{"--filter", p.pattern}
 }
 
-func (p PatternStruct) RenderStruct(opts []interfaces.Struct) []string { return p.Render() }
+func (p PatternStruct) RenderStruct(opts []Struct) []string { return p.Render() }

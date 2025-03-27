@@ -1,6 +1,4 @@
-package fzfarguments
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+package gofzf
 
 type HeaderStruct struct {
 	header string
@@ -13,4 +11,4 @@ func Header(header string) HeaderStruct {
 func (h HeaderStruct) Render() []string {
 	return []string{"--header=" + h.header}
 }
-func (h HeaderStruct) RenderStruct(opts []interfaces.Struct) []string { return h.Render() }
+func (h HeaderStruct) RenderStruct(opts []Struct) []string { return h.Render() }

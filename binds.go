@@ -1,9 +1,7 @@
-package fzfarguments
+package gofzf
 
 import (
 	"strings"
-
-	"github.com/IvanLogvynenko/go-fzf/interfaces"
 )
 
 type BindsStruct struct {
@@ -29,4 +27,4 @@ func CustomBinds(binds []string) BindsStruct {
 func (b BindsStruct) Render() []string {
 	return []string{"--bind", strings.Join(b.binds, ",")}
 }
-func (b BindsStruct) RenderStruct(opts []interfaces.Struct) []string { return b.Render() }
+func (b BindsStruct) RenderStruct(opts []Struct) []string { return b.Render() }

@@ -1,4 +1,4 @@
-package fzfarguments
+package gofzf
 
 import "fmt"
 
@@ -30,6 +30,6 @@ func (h HeightStruct) Render() []string {
 	return []string{"--height", fmt.Sprint(h.height)}
 }
 
-func (h HeightStruct) RenderStruct() []string {
+func (h HeightStruct) RenderStruct(_ []Struct) []string {
 	return h.Render()
 }

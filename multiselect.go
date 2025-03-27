@@ -1,8 +1,8 @@
-package fzfarguments
+package gofzf
 
-import "fmt"
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+import (
+	"fmt"
+)
 
 type MultiselectStruct struct {
 	max int
@@ -23,4 +23,4 @@ func (m MultiselectStruct) Render() []string {
 		return []string{"--multi", fmt.Sprint(m.max)}
 	}
 }
-func (m MultiselectStruct) RenderStruct(opts []interfaces.Struct) []string { return m.Render() }
+func (m MultiselectStruct) RenderStruct(opts []Struct) []string { return m.Render() }

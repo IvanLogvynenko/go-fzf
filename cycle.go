@@ -1,6 +1,4 @@
-package fzfarguments
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+package gofzf
 
 // Yay! empty struct
 type CycleStruct struct{}
@@ -13,6 +11,6 @@ func (_ CycleStruct) Render() []string {
 	return []string{"--cycle"}
 }
 
-func (c CycleStruct) RenderStruct(opts []interfaces.Struct) []string {
+func (c CycleStruct) RenderStruct(opts []Struct) []string {
 	return c.Render()
 }

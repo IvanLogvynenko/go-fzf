@@ -1,6 +1,4 @@
-package fzfarguments
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+package gofzf
 
 type Position string
 
@@ -22,6 +20,6 @@ func InfoPosition(pos Position) InfoPositionStruct {
 func (ip InfoPositionStruct) Render() []string {
 	return []string{"--preview-window=" + string(ip.position)}
 }
-func (ip InfoPositionStruct) RenderStruct(_ []interfaces.Struct) []string {
+func (ip InfoPositionStruct) RenderStruct(_ []Struct) []string {
 	return ip.Render()
 }

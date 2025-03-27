@@ -1,8 +1,4 @@
-package fzfarguments
-
-import (
-	"github.com/IvanLogvynenko/go-fzf/interfaces"
-)
+package gofzf
 
 type InfoStruct struct {
 	info []string
@@ -24,8 +20,8 @@ func (i InfoStruct) Render() []string {
 	return []string{"--preview", previewCmd}
 }
 
-func (i InfoStruct) RenderStruct(opts []interfaces.Struct) []string {
-	if i.info != nil || len(i.info) != 0{
+func (i InfoStruct) RenderStruct(opts []Struct) []string {
+	if i.info != nil || len(i.info) != 0 {
 		return i.Render()
 	}
 	previewCmd := "opts=("

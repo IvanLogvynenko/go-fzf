@@ -1,6 +1,4 @@
-package fzfarguments
-
-import "github.com/IvanLogvynenko/go-fzf/interfaces"
+package gofzf
 
 // Yay! empty struct
 type ReverseStruct struct{}
@@ -13,6 +11,6 @@ func (_ ReverseStruct) Render() []string {
 	return []string{"--reverse"}
 }
 
-func (r ReverseStruct) RenderStruct(opts []interfaces.Struct) []string {
+func (r ReverseStruct) RenderStruct(opts []Struct) []string {
 	return r.Render()
 }

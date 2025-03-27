@@ -5,8 +5,6 @@ import (
 	"testing"
 
 	gofzf "github.com/IvanLogvynenko/go-fzf"
-	fzfarguments "github.com/IvanLogvynenko/go-fzf/fzf-arguments"
-	"github.com/IvanLogvynenko/go-fzf/interfaces"
 )
 
 type Fruit struct {
@@ -22,13 +20,13 @@ func (f Fruit) Desc() string {
 }
 
 func TestFzfPromptStruct(t *testing.T) {
-	fruits := []interfaces.Struct{
+	fruits := []gofzf.Struct{
 		Fruit{"Apple", "A sweet red fruit"},
 		Fruit{"Banana", "A yellow tropical fruit"},
 		Fruit{"Cherry", "A small red fruit"},
 	}
 
-	selected, err := gofzf.FzfPromptStruct(fruits, fzfarguments.Binds(), fzfarguments.Cycle(), fzfarguments.Info(nil), fzfarguments.InfoPosition(fzfarguments.Up))
+	selected, err := gofzf.FzfPromptStruct(fruits, gofzf.Binds(), gofzf.Cycle(), gofzf.Info(nil), gofzf.InfoPosition(gofzf.Up))
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
@@ -47,7 +45,7 @@ func TestFzfPrompt(t *testing.T) {
 		"A small red fruit",
 	}
 
-	selected, err := gofzf.FzfPrompt(optionsStr, fzfarguments.Binds(), fzfarguments.Cycle(), fzfarguments.Info(descriptions))
+	selected, err := gofzf.FzfPrompt(optionsStr, gofzf.Binds(), gofzf.Cycle(), gofzf.Info(descriptions))
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
