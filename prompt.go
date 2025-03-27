@@ -6,11 +6,11 @@ import (
 	"slices"
 	"strings"
 
+	fzfarguments "github.com/IvanLogvynenko/go-fzf/fzf-arguments"
 	"github.com/IvanLogvynenko/go-fzf/interfaces"
-	"github.com/IvanLogvynenko/go-fzf/options"
 )
 
-func FzfPrompt(options []string, modes ...options.Mode) ([]string, error) {
+func FzfPrompt(options []string, modes ...fzfarguments.Mode) ([]string, error) {
 	input := strings.Join(options, "\n")
 	fzf_cmd := "fzf"
 	modesStr := make([]string, 0)
@@ -29,7 +29,7 @@ func FzfPrompt(options []string, modes ...options.Mode) ([]string, error) {
 	return strings.Split(strings.TrimSpace(string(out)), "\n"), nil
 }
 
-func FzfPromptStruct(options []interfaces.Struct, modes ...options.Mode) ([]int, error) {
+func FzfPromptStruct(options []interfaces.Struct, modes ...fzfarguments.Mode) ([]int, error) {
 	input := options[0].ToString()
 	for _, opt := range options[1:] {
 		input += "\n" + opt.ToString()

@@ -1,4 +1,4 @@
-package options
+package fzfarguments
 
 import "github.com/IvanLogvynenko/go-fzf/interfaces"
 

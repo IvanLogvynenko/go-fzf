@@ -4,11 +4,11 @@ This is a wrapper for an existing `fzf` cli written in GOlang to make cli applic
 
 There are only two functions. 
 """go
-	FzfPrompt(options []string, modes ...options.Modes) ([]string, error)
-	FzfPromptStruct(options []Struct, modes ...options.Modes) ([]Struct, error)
+	FzfPrompt(options []string, modes ...fzfarguments.Modes) ([]string, error)
+	FzfPromptStruct(options []Struct, modes ...fzfarguments.Modes) ([]Struct, error)
 """
 
-first one can be considered a case of the second. Second only requieres you to pass a struct with defined method `ToString` and `Desc`(used only if Info is passed, so can return "" if info is not used). Functions return a list of matched options. In default case (no options passed) that list will have only one entry. If options like `options.Multiselect` or `options.Pattern` are passed, fzf was able to match several entries. The top one is guaranteed to be the first(from the `options []string`) and the best (fzf sorts result) match of all. 
+first one can be considered a case of the second. Second only requieres you to pass a struct with defined method `ToString` and `Desc`(used only if Info is passed, so can return "" if info is not used). Functions return a list of matched options. In default case (no options passed) that list will have only one entry. If arguments like `fzfarguments.Multiselect` or `fzfarguments.Pattern` are passed, fzf was able to match several entries. The top one is guaranteed to be the first(from the `options []string`) and the best (fzf sorts result) match of all. 
 
 Options:
 - Pattern: Provide a fzf with a pattern to search for. Interactive UI will not b loaded. Userful to omit typos during argument parsing

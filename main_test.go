@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	gofzf "github.com/IvanLogvynenko/go-fzf"
+	fzfarguments "github.com/IvanLogvynenko/go-fzf/fzf-arguments"
 	"github.com/IvanLogvynenko/go-fzf/interfaces"
-	"github.com/IvanLogvynenko/go-fzf/options"
 )
 
 type Fruit struct {
@@ -28,7 +28,7 @@ func TestFzfPromptStruct(t *testing.T) {
 		Fruit{"Cherry", "A small red fruit"},
 	}
 
-	selected, err := gofzf.FzfPromptStruct(fruits, options.Binds(), options.Cycle(), options.Info(nil))
+	selected, err := gofzf.FzfPromptStruct(fruits, fzfarguments.Binds(), fzfarguments.Cycle(), fzfarguments.Info(nil), fzfarguments.InfoPosition(fzfarguments.Up))
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
@@ -47,7 +47,7 @@ func TestFzfPrompt(t *testing.T) {
 		"A small red fruit",
 	}
 
-	selected, err := gofzf.FzfPrompt(optionsStr, options.Binds(), options.Cycle(), options.Info(descriptions))
+	selected, err := gofzf.FzfPrompt(optionsStr, fzfarguments.Binds(), fzfarguments.Cycle(), fzfarguments.Info(descriptions))
 	if err != nil {
 		fmt.Println("Error:", err)
 		return

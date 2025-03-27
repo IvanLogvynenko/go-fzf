@@ -1,4 +1,4 @@
-package options
+package fzfarguments
 
 import "fmt"
 
