@@ -8,7 +8,7 @@ There are only two functions.
 	FzfPromptStruct(options []Struct, modes ...options.Modes) ([]Struct, error)
 """
 
-first one can be considered a case of the second. Second only requieres you to pass a struct with defined method `ToString`. Functions return a list of matched options. In default case (no options passed) that list will have only one entry. If options like `options.Multiselect` or `options.Pattern` are passed, fzf was able to match several entries. The top one is guaranteed to be the first(from the `options []string`) and the best (fzf sorts result) match of all. 
+first one can be considered a case of the second. Second only requieres you to pass a struct with defined method `ToString` and `Desc`(used only if Info is passed, so can return "" if info is not used). Functions return a list of matched options. In default case (no options passed) that list will have only one entry. If options like `options.Multiselect` or `options.Pattern` are passed, fzf was able to match several entries. The top one is guaranteed to be the first(from the `options []string`) and the best (fzf sorts result) match of all. 
 
 Options:
 - Pattern: Provide a fzf with a pattern to search for. Interactive UI will not b loaded. Userful to omit typos during argument parsing
@@ -18,8 +18,8 @@ Options:
 - Prompt: Used to change a prompt in the input line (default: >)
 - Multiselect: Guess what? And you can limit maximal selection
 - Cycle: Cycling through given options (default: when you reach the end you won't be sent to the first again)
-- Info: You can provide some description for each option and it will be displayed when the option is selected. Lenght and indexes must match. If no description is needed pass an empty string. You can also pass a function that will map though options, if you have stored your description in struct
-- Binds: (default: tab:down,shift-tab:up) They are mine. You can provide your own that will override that (pass coma separated)
+- Info: You can provide some description for each option and it will be displayed when the option is selected. Lenght and indexes must match. If no description is needed pass an empty string. You can also store description in your structs if you are using FzfPromptStruct. If so, override `Desc` in your struct and make it return your description
+- Binds: (default: tab:down,shift-tab:up,ctrl-s:select,ctrl-a:select-all,ctrl-d:deselect) They are mine. You can provide your own that will override that
 
 Default modes: Binds
 
