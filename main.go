@@ -17,7 +17,6 @@ func FzfPrompt(options []string, modes ...Mode) ([]string, error) {
 
 	fzf := exec.Command(fzf_cmd, modesStr...)
 	fzf.Stdin = strings.NewReader(input)
-	fmt.Println(fzf.String())
 
 	out, err := fzf.Output()
 	if err != nil {
@@ -39,7 +38,6 @@ func FzfPromptStruct(options []Struct, modes ...Mode) ([]int, error) {
 
 	fzf := exec.Command(fzf_cmd, modesStr...)
 	fzf.Stdin = strings.NewReader(input)
-	fmt.Println(fzf.String())
 
 	out, err := fzf.Output()
 	if err != nil {
