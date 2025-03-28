@@ -1,7 +1,6 @@
 package gofzf
 
 import (
-	"fmt"
 	"os/exec"
 	"slices"
 	"strings"
